@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg888"
+   sodipodi:docname="map-pin.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview890"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="13.609375"
+     inkscape:cy="14.484375"
+     inkscape:window-width="1280"
+     inkscape:window-height="652"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Workspace" />
+  <defs
+     id="defs876">
+    <style
+       id="style874">.cls-1,.cls-2{fill:bc9742;}.cls-2{stroke:#bc9742;stroke-linecap:round;stroke-linejoin:round;}</style>
+  </defs>
+  <g
+     data-name="Layer 2"
+     id="Layer_2"
+     transform="translate(0.2126991,0.07343365)">
+    <g
+       id="Workspace">
+      <path
+         id="rect878"
+         class="cls-1"
+         style="fill:none"
+         d="M 0,0 H 24 V 24 H 0 Z" />
+      <path
+         id="circle880"
+         class="cls-2"
+         style="fill:none;stroke:#bc9742;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         d="M 13.5,9 A 1.5,1.5 0 0 1 12,10.5 1.5,1.5 0 0 1 10.5,9 1.5,1.5 0 0 1 12,7.5 1.5,1.5 0 0 1 13.5,9 Z" />
+      <path
+         class="cls-2"
+         d="m 15.93,8.93 a 3.64,3.64 0 0 1 -0.48,1.89 C 14.64,12.15 12,16 12,16 12,16 9.36,12.15 8.55,10.82 a 3.64,3.64 0 0 1 -0.48,-1.89 3.93,3.93 0 0 1 7.86,0 z"
+         id="path882"
+         style="fill:none;fill-opacity:1;stroke:#bc9742;stroke-opacity:1" />
+      <path
+         id="polyline884"
+         class="cls-2"
+         style="fill:none;stroke:#bc9742;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         d="M 13.36,14 H 15 l 1,4 H 8 l 1,-4 h 1.64" />
+    </g>
+  </g>
+</svg>

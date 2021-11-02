@@ -6,6 +6,18 @@
 			"task": "pug",
 			"problemMatcher": [],
 			"label": "gulp: pug"
+		},
+		{
+			"type": "gulp",
+			"task": "default",
+			"problemMatcher": [],
+			"label": "gulp: default"
+		},
+		{
+			"type": "gulp",
+			"task": "img",
+			"problemMatcher": [],
+			"label": "gulp: img"
 		}
 	]
 }

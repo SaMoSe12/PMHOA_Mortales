@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Capa_1"
+   data-name="Capa 1"
+   viewBox="0 0 200 200"
+   version="1.1"
+   sodipodi:docname="icon-qr.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview41"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="2.395"
+     inkscape:cx="100"
+     inkscape:cy="100.20877"
+     inkscape:window-width="1280"
+     inkscape:window-height="652"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Capa_1" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#bc9742;}</style>
+  </defs>
+  <title
+     id="title6">ICONOS</title>
+  <rect
+     class="cls-1"
+     x="95.83"
+     y="107.95"
+     width="8.41"
+     height="8.41"
+     id="rect8"
+     style="fill:#bc9742;fill-opacity:1" />
+  <rect
+     class="cls-1"
+     x="107.98"
+     y="95.8"
+     width="8.41"
+     height="8.41"
+     id="rect10"
+     style="fill:#bc9742;fill-opacity:1" />
+  <rect
+     class="cls-1"
+     x="107.98"
+     y="107.95"
+     width="8.41"
+     height="8.41"
+     id="rect12"
+     style="fill:#bc9742;fill-opacity:1" />
+  <rect
+     class="cls-1"
+     x="120.13"
+     y="95.8"
+     width="20.56"
+     height="8.41"
+     id="rect14"
+     style="fill:#bc9742;fill-opacity:1" />
+  <rect
+     class="cls-1"
+     x="59.38"
+     y="95.8"
+     width="8.41"
+     height="8.41"
+     id="rect16"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M79.94,47.2H47.23V79.9H79.94ZM71.53,71.5H55.64V55.6H71.53Z"
+     id="path18"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M152.83,47.2h-32.7V79.9h32.7Zm-8.4,24.3H128.54V55.6h15.89Z"
+     id="path20"
+     style="fill:#bc9742;fill-opacity:1" />
+  <rect
+     class="cls-1"
+     x="95.83"
+     y="47.2"
+     width="8.41"
+     height="8.41"
+     id="rect22"
+     style="fill:#bc9742;fill-opacity:1" />
+  <polygon
+     class="cls-1"
+     points="104.24 71.5 95.83 71.5 95.83 95.8 83.68 95.8 83.68 116.35 92.08 116.35 92.08 104.2 104.24 104.2 104.24 92.05 116.39 92.05 116.39 83.65 104.24 83.65 104.24 71.5"
+     id="polygon24"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M152.83,152.8V120.1h-32.7v32.7Zm-24.29-24.3h15.89v15.9H128.54Z"
+     id="path26"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M47.23,152.8H79.94V120.1H47.23Zm8.41-24.3H71.53v15.9H55.64Z"
+     id="path28"
+     style="fill:#bc9742;fill-opacity:1" />
+  <rect
+     class="cls-1"
+     x="95.83"
+     y="120.1"
+     width="8.41"
+     height="20.56"
+     id="rect30"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M63.53,13l-16.17-.32-25.64-.5L15.81,12A2.85,2.85,0,0,0,13,14.84V63.5c0,3.62,5.62,3.62,5.62,0V14.84l-2.81,2.81L32,18l25.65.51,5.9.11c3.62.07,3.62-5.54,0-5.61Z"
+     id="path32"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M187.06,63.5l.32-16.17.5-25.65.12-5.9A2.85,2.85,0,0,0,185.19,13H136.53c-3.61,0-3.62,5.61,0,5.61h48.66l-2.81-2.8L182.07,32l-.51,25.65-.11,5.9c-.07,3.62,5.54,3.62,5.61,0Z"
+     id="path34"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M137.47,187l16.17.32,25.64.5,5.91.12a2.85,2.85,0,0,0,2.81-2.81V136.5c0-3.62-5.62-3.62-5.62,0v48.66l2.81-2.81L169,182l-25.65-.51-5.9-.11c-3.62-.07-3.62,5.54,0,5.61Z"
+     id="path36"
+     style="fill:#bc9742;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M13.94,136.5l-.32,16.17-.5,25.65-.12,5.9A2.85,2.85,0,0,0,15.81,187H64.47c3.61,0,3.62-5.61,0-5.61H15.81l2.81,2.8.31-16.17.51-25.65.11-5.9c.07-3.62-5.54-3.62-5.61,0Z"
+     id="path38"
+     style="fill:#bc9742;fill-opacity:1" />
+</svg>

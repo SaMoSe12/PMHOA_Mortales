@@ -1,0 +1,130 @@
+pmh-dorado = #bc9742
+pmh-texto = #696969
+pmh-fondo = #FaFaFa
+pmh-footer = #61605e
+
+
+
+.titulo
+    color: pmh-dorado
+    letter-spacing: .25ch
+    margin: 1rem 0 2.25rem 0
+    text-align: left
+    text-decoration: none
+    text-transform: uppercase
+    font-size: 1.5rem
+    font-weight: 600
+
+.subtitulo
+    color: pmh-dorado
+    margin: 1rem 0 2.25rem 0
+    font-size: 1.5rem
+    font-weight: 500
+
+a
+    color: pmh-dorado
+    &:hover, &:focus, &:visited
+        color: inherit
+        text-decoration: none
+
+body
+    overflow-x: hidden
+
+.navbar
+    .navbar-brand
+        .navbar-item
+            
+            margin: 0rem 5rem 0rem 3.33rem
+            img 
+                max-height: 4.5rem
+    .navbar-menu
+        p
+            display: flex
+            align-items: center
+        .navbar-start
+            a.navbar-item
+                transition: color .3s ease
+                &.lang
+                    &.es
+                        padding-right: 0.1rem
+                    &.en
+                        padding-left: 0.1rem
+
+                &:hover
+                    color: pmh-dorado
+
+        .navbar-end
+            .navbar-dropdown
+                min-width: 196.9px
+                transform: translate(-146.5px, 0)
+
+                a.navbar-item
+                    text-transform: uppercase
+                    &:hover
+                        color: pmh-dorado
+
+#home
+    height: 100vh
+    
+    background-image: url('../img/select-01.jpg')
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+
+    &.quienes-somos
+        background-image: url('../img/quienes-somos.jpg')
+    
+    &.servicios
+        background-image: url('../img/select-00.jpg')
+    
+    &.bienes-raices
+        background-image: url('../img/5.jpg')
+    
+    &.apoyo-residentes
+        background-image: url('../img/1.jpg')
+
+#bienvenida
+    margin: 2.5rem 0 4rem 0
+    p
+        padding-bottom: 1.25rem
+    .columns
+        .column
+            display: flex
+            justify-content: center
+            align-content: center
+            align-items: center
+            figure
+                cursor: pointer
+                p
+                    text-transform: uppercase
+                    text-align: center
+                    font-weight: 600
+                    font-size: 1rem
+
+#quienes-somos
+    .columns.links-abajo
+        margin: 1rem 0 3rem 0
+        .column
+            p
+                text-transform: uppercase
+                color: pmh-dorado
+
+footer.footer
+    background-color: pmh-footer
+    color: #FFFFFF
+    padding: 2rem 2rem 1rem 2rem
+    .columns 
+        justify-content: center
+        align-content: center
+        align-items: center
+
+    img 
+        height: 7rem
+    a 
+        color: #FFFFFF
+        text-decoration: none
+        cursor: pointer
+
+        &:hover, &:focus, &:visited
+            color: #FFFFFF
+            text-decoration: none

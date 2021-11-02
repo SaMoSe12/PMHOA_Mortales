@@ -1,0 +1,29 @@
+nav.navbar.is-transparent(role="navigation" aria-label="main navigation")
+    .navbar-brand 
+        a.navbar-item(href="/")
+            img(src!="assets/img/logo.png", alt="Logo Punta Mita HOA")
+        
+        a.navbar-burger(role="button" aria-label="menu" aria-expanded="false" data-target="navbarMenu")
+            span(aria-hidden="true")
+            span(aria-hidden="true")
+            span(aria-hidden="true")
+        
+    .navbar-menu#navbarMenu
+        .navbar-start 
+            a.navbar-item(href="/quienes-somos") ¿Quienes somos?
+            a.navbar-item(href="/servicios") Servicios
+            a.navbar-item(href="/bienes-raices") Bienes raíces
+            a.navbar-item(href="/amenidades") Amenidades
+            a.navbar-item(href="/iniciar-sesion") Iniciar sesión
+            a.navbar-item.lang.es(href="/") ES 
+            p | 
+            a.navbar-item.lang.en(href="/eng") EN
+        .navbar-end 
+            .navbar-item.has-dropdown.is-hoverable 
+                a.navbar-link.is-arrowless 
+                    img(src="assets/img/iconmonstr-menu-1.svg", alt="menu")
+                
+                .navbar-dropdown 
+                    .navbar-item PROPIETARIOS 
+                    a.navbar-item(href="/apoyo-residentes") Apoyo a residentes
+                    a.navbar-item(href="/contacto") Contacto y Ubicacion 

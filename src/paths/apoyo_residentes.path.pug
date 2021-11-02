@@ -1,0 +1,52 @@
+#home.apoyo-residentes 
+
+section#apoyo-residentes 
+    .container
+        h1.titulo Apoyo a residentes
+        p.subtitulo ¡Bienvenido! 
+        p Por favor llena el formulario a continuación y nosotros te contactaremos pronto 
+
+        form.mt-4.mb-4
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="tema").title.is-4  Sobre: 
+                .field-body 
+                    .field 
+                        .control 
+                            .select.is-fullwidth 
+                                select#tema(name="tema")
+                                    option Selecciona un tema  
+            
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="asunto").title.is-4  Asunto: 
+                .field-body 
+                    .field 
+                        .control 
+                            input.input#asunto(type="text", name="asunto")
+            
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="condominio").title.is-4  Condominio: 
+                .field-body 
+                    .field 
+                        .control 
+                            .select.is-fullwidth 
+                                select.required#condominio(name="condominio", required="true")
+                                    option Selecciona un condominio 
+
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="problema").title.is-4  Problema: 
+                .field-body 
+                    .field 
+                        .control 
+                            textarea.textarea#problema(type="text", name="problema")
+            
+            .field.is-horizontal
+                .field-label 
+                .field-body 
+                    .field 
+                        .control 
+                            button.button.is-primary ENVIAR
+                            
