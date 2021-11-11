@@ -4,19 +4,27 @@
    session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
       
-      $sql = "SELECT idResidente FROM catalogoresidentes WHERE user = '$myusername' and password = '$mypassword'";
-      $result = mysqli_query($conn,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $count = mysqli_num_rows($result);
+      $sql = "SELECT idResidente FROM CatalogoResidentes WHERE user = '$myusername' and password = '$mypassword'";
+      $result = mysqli_query($conn, $sql);
+      if(!$result){
+          echo "Error en la consulta de sql: ".PHP_EOL;
+          echo $sql . PHP_EOL;
+          echo mysqli_error($conn);
+          die;
+      }
+      else{
+          echo mysqli_error($conn).PHP_EOL;
+          $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+          $count = mysqli_num_rows($result);
+      }
         
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("location: homeResidentes.php");
+         header("location: /home-residentes");
       }else {
          $error = "Usuario y Contraseña incorrectos";
       }
@@ -31,13 +39,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/site.css" />
-    <link rel="shortcut icon" type="image/jpg" href="images/logo.png"/>
+    <link rel="stylesheet" href="puntaHOA/css/site.css" />
+    <link rel="shortcut icon" type="image/jpg" href="puntaHOA/images/logo.png"/>
  </head>
  <style>
     body {
-        background-image: url('images/4.jpg');
+        background-image: url('puntaHOA/images/4.jpg');
         background-size: cover;
+        height: 100vh;
     }
     footer {
    position: fixed;
@@ -53,7 +62,7 @@
       <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <img src="images/logo.png" href="/Index" width="120" height="120">
+                <img src="puntaHOA/images/logo.png" href="/" width="120" height="120">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -75,7 +84,7 @@
                             }        
                             ?>
                             <h3 class="text-center text-white">Iniciar Sesión</h3>  
-                        <form id="login-form" class="form" action="" method="post">                          
+                        <form id="login-form" class="form" action="#" method="post">                          
                             <br />
                             <br />
                             <div class="input-group input-group-lg">
@@ -101,7 +110,7 @@
                         </form>
                         <div id="formFooter">
                             <center>
-                                <a class="text-white" href="reestablecer.php">Reestablece tu contraseña</a>
+                                <a class="text-white" href="/reestablecer">Reestablece tu contraseña</a>
                             </center>
                         </div>
                     </div>

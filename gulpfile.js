@@ -65,7 +65,8 @@ gulp.task('static', () => {
     .on('end', () => {
         log('proceso static terminado')
     })
-});
+}); 
+
 gulp.task('min-img', () => {
     return gulp.src('src/assets/img/*')
         .pipe(imagemin({

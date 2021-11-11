@@ -1,12 +1,19 @@
 <?php
 $servername = "localhost";
-$database = "hoaptamita";
+$database = "hoaptamta";
 $username = "root";
-$password = "";
+$password = "r00t";
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect(
+    $servername, 
+    $username, 
+    $password, 
+    $database
+);
 // Check connection
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    echo "Error de coneccion:". PHP_EOL;
+    echo mysqli_connect_errno();
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>

@@ -4,8 +4,8 @@ const NAVBAR = document.querySelector('nav.navbar');
 document.addEventListener('DOMContentLoaded', () => {
 
     // Logica para que los menus de hamburgesa enseñen el menu del navbar
-    if(NAVBARBURGERS > 0){
-
+    if(NAVBARBURGERS){
+        console.log(NAVBARBURGERS)
         NAVBARBURGERS.forEach(element => {
             element.addEventListener('click', () => {
 

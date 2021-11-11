@@ -16,6 +16,9 @@
     "Hoa"
   ],
   "author": "Santiago MoSe <santiago.moguel.secades@gmail.com> (seseconsulting.com)",
+  "colaborators":[
+    "Diego Gutierrez <die-gutierrez@hotmail.com> (seseconsulting.com)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SaMoSe12/PMHOA_Mortales/issues"

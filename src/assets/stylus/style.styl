@@ -54,11 +54,19 @@ body
                     color: pmh-dorado
 
         .navbar-end
+            a.navbar-item
+                text-transform: uppercase
+                transition: color .3s ease
+
+                &:hover
+                    color: pmh-dorado
+
             .navbar-dropdown
                 min-width: 196.9px
                 transform: translate(-146.5px, 0)
 
                 a.navbar-item
+                    transition: color .3s ease
                     text-transform: uppercase
                     &:hover
                         color: pmh-dorado
@@ -72,16 +80,16 @@ body
     background-repeat: no-repeat
 
     &.quienes-somos
-        background-image: url('../img/quienes-somos.jpg')
+        background-image: url('../img/header-quienes-somos.jpg')
     
     &.servicios
         background-image: url('../img/select-00.jpg')
     
     &.bienes-raices
-        background-image: url('../img/5.jpg')
+        background-image: url('../img/header-bienes-raices.jpg')
     
     &.apoyo-residentes
-        background-image: url('../img/1.jpg')
+        background-image: url('../img/header-apoyo-residentes.jpg')
 
 #bienvenida
     margin: 2.5rem 0 4rem 0
@@ -108,6 +116,9 @@ body
             p
                 text-transform: uppercase
                 color: pmh-dorado
+#bienes-raices
+    ul
+        padding: 1rem 0 1rem 1rem
 
 footer.footer
     background-color: pmh-footer
@@ -128,3 +139,35 @@ footer.footer
         &:hover, &:focus, &:visited
             color: #FFFFFF
             text-decoration: none
+
+#log
+    #login-row
+        form#login-form
+            .input-group.input-group-lg
+                .input-group-prepend
+                    span
+                        height: 100%
+
+@media screen and (max-width: 768px)
+    .titulo
+        position: relative
+        top: -270px
+        width: 100%
+        padding: 1rem 0 1rem 1rem
+        background-color: rgba(0,0,0,0.5)
+
+    .navbar
+        .navbar-menu
+            .navbar-start
+                a.navbar-item
+                    &.lang
+                        &.es, &.en
+                            padding-right: 0
+                            padding-left: .75rem
+                p 
+                    display: none
+            .navbar-end
+                img,
+                .navbar-dropdown
+                    display: none
+

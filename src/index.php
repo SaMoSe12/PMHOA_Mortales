@@ -47,6 +47,7 @@ Route::add('/servicios', function(){
     loadTemplate('servicios');
     footer();
 });
+
 Route::add('/bienes-raices', function(){
     navbar();
     loadTemplate('bienes_raices');
@@ -69,17 +70,29 @@ Route::add('/contacto', function(){
     loadTemplate('contacto');
     footer();
 });
-Route::add('/iniciar-sesion', function(){
-    require_once('puntaHOA/index.php');
+
+Route::add('/galeria', function(){
+    navbar();
+    loadTemplate('galeria');
+    footer();
 });
 
+// ----- Rutas de Deigow -----
+Route::add('/iniciar-sesion', function(){
+    require_once('puntaHOA/index.php');
+},'get');
+Route::add('/iniciar-sesion', function(){
+    require_once('puntaHOA/index.php');
+},'post');
 Route::add('/home-residentes', function() {
     require_once('puntaHOA/homeResidentes.php');
 });
 Route::add('/admin', function() {
     require_once('puntaHOA/homeAdmin.php');
 });
-
+Route::add('/reestablecer', function(){
+    require_once('puntaHOA/reestablecer.php');
+});
 Route::run(BASEPATH);
 ?>
 <script src="<?php echo 'assets/js/main.min.js';?>"></script>
