@@ -13,7 +13,7 @@
     $offset = ($pag-1) * $limit;
 
 
-    $sql = "SELECT SQL_CALC_FOUND_ROWS idResidente, nombreResidente, apellidoResidente, propiedad, user, correoResidente, idFraccionamiento FROM catalogoresidentes LIMIT $offset, $limit";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS idHistorico, Periodo, idResidente, idTipoDocumento, nombreDoc FROM historicodocumentos LIMIT $offset, $limit";
     $sqlTotal = "SELECT FOUND_ROWS() as total";
 
     $rs = mysqli_query($conn,$sql);
@@ -66,33 +66,6 @@
     }
 </style>
 <script>
-function myFunction() {
-     document.querySelector("#myInput").onkeyup = function(){
-        $TableFilter("#data_table", this.value);
-    }
-    
-    $TableFilter = function(id, value){
-        var rows = document.querySelectorAll(id + ' tbody tr');
-        
-        for(var i = 0; i < rows.length; i++){
-            var showRow = false;
-            
-            var row = rows[i];
-            row.style.display = 'none';
-            
-            for(var x = 0; x < row.childElementCount; x++){
-                if(row.children[x].textContent.toLowerCase().indexOf(value.toLowerCase().trim()) > -1){
-                    showRow = true;
-                    break;
-                }
-            }
-            
-            if(showRow){
-                row.style.display = null;
-            }
-        }
-    }
-}
 </script>
  <body>
      <header>
@@ -106,7 +79,7 @@ function myFunction() {
                 <div class="d-flex flex-row-reverse bd-highlight">
                    <div class="p-2 bd-highlight"><a href="logout.php">Cerrar Sesión</a></div> 
                    <div class="p-2 bd-highlight"><a href="notificaciones.php?pag=1" style="color: black;">Notificaciones</a></div>
-                   <div class="p-2 bd-highlight"><a href="homeDocumentos.php?pag=1" style="color: black;">Documentos</a></div>
+                   <div class="p-2 bd-highlight"><a href="homeAdmin.php?pag=1" style="color: black;">Residentes</a></div>
                    <div class="p-2 bd-highlight"><a style="color: black;">Bienvenido <?php echo $login_session; ?></a></div>
                 </div>
             </div>
@@ -121,18 +94,16 @@ function myFunction() {
             echo '<div class="alert alert-success">' . $alerta . '</div>';
             }      
     ?> 
-    <h1>Registro de Residentes</h1>
+    <h1>Registro de Documentos</h1>
     <br/>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca el dato que desea filtrar">
     <table id="data_table" class="table table-striped">
        <thead>
            <tr>
-           <th>Clave del Residente</th>
-           <th>Nombre del Residente</th>  
-           <th>Propiedad</th> 
-           <th>Usuario</th>  
-           <th>Correo Electrónico</th> 
-           <th>Condominio</th>     
+           <th>Registro</th>
+           <th>Periodo</th>  
+           <th>Residente</th> 
+           <th>Tipo de Documento</th>
+           <th>Nombre del Documento</th>     
            <th>Acción</th>  
            </tr>
        </thead>
@@ -140,23 +111,23 @@ function myFunction() {
        <?php
          while ($row = mysqli_fetch_assoc($rs))
          {
-          $id = $row["idResidente"];
-          $name = htmlentities($row["nombreResidente"]." ".$row["apellidoResidente"]);
-          $property = htmlentities($row["propiedad"]);
-          $user = htmlentities($row["user"]);
-          $mail = htmlentities($row["correoResidente"]);
-          $sql = mysqli_query($conn,"select nombreFracc from catalogofraccionamiento where idFraccionamiento = ".$row["idFraccionamiento"]." ");
-          $row = mysqli_fetch_array($sql,MYSQLI_ASSOC);
-          $fracc =  $row["nombreFracc"];
+          $id = $row["idHistorico"];
+          $periodo = htmlentities($row["Periodo"]);
+          $sql = mysqli_query($conn,"select nombreResidente, apellidoResidente from catalogoresidentes where idResidente = ".$row["idResidente"]." ");
+          $roe = mysqli_fetch_array($sql,MYSQLI_ASSOC);
+          $residente =  "".$roe["nombreResidente"]." ".$roe["apellidoResidente"];
+          $sq = mysqli_query($conn,"select descripcion from catalogodocumentos where idTipoDocumento = ".$row["idTipoDocumento"]." ");
+          $ro = mysqli_fetch_array($sq,MYSQLI_ASSOC);
+          $desc=  $ro["descripcion"];
+          $documento = htmlentities($row["nombreDoc"]);
        ?>
             <tr>
             <td><?php echo $id; ?></td>
-            <td><?php echo $name; ?></td>
-            <td><?php echo $property; ?></td>
-            <td><?php echo $user; ?></td>
-            <td><?php echo $mail; ?></td>
-            <td><?php echo $fracc; ?></td>
-            <td><a href="editarResidente.php?EDITAR_ID=<?php echo $id; ?>"><i class="fas fa-user-edit"></i></a></td>
+            <td><?php echo $periodo; ?></td>
+            <td><?php echo $residente; ?></td>
+            <td><?php echo $desc; ?></td>
+            <td><?php echo $documento; ?></td>
+            <td><a href="editarDocs.php?EDITAR_ID=<?php echo $id; ?>"><i class="fas fa-pen-square"></i></a></td>
             </tr>
        <?php
          }
@@ -179,7 +150,7 @@ function myFunction() {
         </tfoot>
         </table>
     <div class="float-right">
-    <button type="button" class="btn btn-info"><a href="formusuario.php">Añadir usuario</a></button> 
+    <button type="button" class="btn btn-info"><a href="nuevoDocs.php">Añadir documento</a></button> 
     </div> 
     </div>
     <br/>

@@ -80,19 +80,26 @@ gulp.task('min-img', () => {
         .on('end', ()=>{log('Proceso min-img terminado')});
 });
 gulp.task('clean-img', (cb) => {
-    return del('dist/assets/img', cb)
+    return del('dist/assets/img', cb);
 });
 
 gulp.task('img', gulp.series(['clean-img', 'min-img']));
+
+gulp.task('pdf', () => {
+    return gulp.src('src/**/*.pdf')
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('watch', () => {
     gulp.watch('src/assets/**/*.styl', gulp.series(['stylus']))
     .on('error', (err) => {
         log('error:' + err);
     });
+    gulp.watch('src/**/*.pdf', gulp.series(['pdf']));
     gulp.watch('src/**/*.php', gulp.series(['static']));
     gulp.watch('src/**/*.pug', gulp.series(['pug']));
     gulp.watch('src/assets/js/**/*.js', gulp.series(['js']));
     
 });
 
-gulp.task('default', gulp.series(['static','pug', 'stylus', 'watch']));
+gulp.task('default', gulp.series(['static','pug', 'stylus', 'pdf','watch']));

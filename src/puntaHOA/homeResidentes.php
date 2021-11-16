@@ -11,16 +11,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Residentes</title>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="puntaHOA/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/site.css" />
-    <link rel="shortcut icon" type="image/jpg" href="images/logo.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="puntaHOA/images/logo.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  </head>
   <style>
     footer {
@@ -36,6 +33,11 @@
    background-image: url('puntaHOA/images/fraccionamientos/<?php echo $idFracc; ?>.jpg');
    background-size: cover;
    background-position: center;
+   height: 6rem;
+   transition: height .3s ease-in;
+    }
+    .navbar.is-fixed-top{
+        height: 3.5rem;
     }
     .navbar a {
    color:white !important;
@@ -60,11 +62,6 @@
        color: black;
    }
    </style>
-   <script>
-    $(document).ready(function(){
-      $('.toast').toast('show');
-    });
-</script>
  <body>    
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -125,21 +122,22 @@
     <center>
         <div class="row">
             <div class="col-sm">
-                <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+                <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
+                    href="puntaHOA/formatosHOA/201 A - 1ER SEM (ENERO & FEBRERO 2021) (1).pdf"
+                    target="_blank"
+                    download ="201 A - 1ER SEM (ENERO & FEBRERO 2021) (1).pdf"
+                >
                     <img src ="puntaHOA/images/factura.svg" width="100" height="100" />
-                    <p>Recibo de Agua</p>
+                    <p>Servicios</p>
                 </a>
             </div>
             <div class="col-sm">
-                <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+                <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
+                    href="puntaHOA/formatosHOA/MA 201A - ENE'21 (al 2 feb) (1).pdf"
+                    target="_blank"
+                >
                     <img src ="puntaHOA/images/factura.svg" width="100" height="100" />
-                    <p>Recibo de Luz</p>
-                </a>
-            </div>
-            <div class="col-sm">
-                <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-                    <img src ="puntaHOA/images/factura.svg" width="100" height="100" />
-                    <p>Recibo de Gas</p>
+                    <p>Mantenimiento</p>
                 </a>
             </div>
         </div>
@@ -168,6 +166,15 @@
             </a>          
         </div>
         <div class="col-sm">
+            <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" 
+                href="puntaHOA/formatosHOA/Ruta de transporte temporada Alta_Ruta5.pdf" 
+                download="Ruta_de_transporte_temporada_Alta_Ruta_5_2021.pdf"
+            >
+            <img src ="puntaHOA/images/documento.svg" width="100" height="100"/>
+            <p>Ruta 5 de Transporte Temporada Alta</p>
+            </a>
+        </div>
+        <div class="col-sm">
             <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" href="puntaHOA/formatosHOA/Rutas_de_transporte_temporada_Baja_2021.pdf" download="Ruta_de_transporte_temporada_Baja_2021" >
                 <img src ="puntaHOA/images/documento.svg" width="100" height="100"/>
                 <p>Ruta de Transporte Temporada Baja</p>
@@ -178,8 +185,6 @@
 <br />
 <br />
 <div id="amenidades" class="container">
-    <h3 style="color:#bc9742;">AMENIDADES</h3>
-    <section id="amenidades"> <div class="container"><div class="columns is-desktop is-multiline"> <div class="column is-half"><div class="card"><div class="card-image"><figure class="image is-1by1"><img src="assets/img/golf.jpg" alt="Golf"/></figure></div><div class="card-content"><div class="content"><p class="title is4">CAMPO DE GOLF</p><p>El Campo de Golf Punta Mita fue diseñado por Jack Nicklaus y creado sobre una superficie de más de más de 78 hectáreas. Este campo Jack Nicklaus Signature ofrece una experiencia de campeonato en 18 hoyos par 72 para para jugadores con habilidades de todos los niveles.</p></div></div></div></div><div class="column is-half"><div class="card"><div class="card-image"><figure class="image is-1by1"><img src="assets/img/beach.jpg" alt="Club de playa"/></figure></div><div class="card-content"><div class="content"><p class="title is4">CLUB DE PLAYA</p><p>Los clubs de playa son reservados exclusivamente para los propietarios de Punta Mita y sus invitados, los cuales gozan de lugares placenteros que se distinguen por su ubicación en la playa, piscinas y otras comodidades que hacen que un día o una noche en la costa sean aún más atractivos</p></div></div></div></div><div class="column is-half"><div class="card"><div class="card-image"><figure class="image is-1by1"><img src="assets/img/restaurant.jpg" alt="Restaurante"/></figure></div><div class="card-content"><div class="content"><p class="title is4">GUÍA DE RESTAURANTES</p><p>La experiencia de frescas y deliciosas recetas servidas acompañadas de muchas sonrisas amistosas y cálida hospitalidad.</p></div></div></div></div><div class="column is-half"><div class="card"><div class="card-image"><figure class="image is-1by1"><img src="assets/img/tennis.jpg" alt="tennis"/></figure></div><div class="card-content"><div class="content"><p class="title is4">TENIS</p><p>Las instalaciones actualizadas proveen de 10 canchas a los entusiastas del tenis. Tenis Resorts Online calificó a Punta Mita como uno de los 20 mejores resorts de tenis del mundo y el resort de tenis #1 en México. Administrado por Four Seasons en conjunto con Peter Burwash International, el club cuenta con cinco canchas duras y cinco de césped sintético junto con una tienda para profesionales y zona de casilleros. </p></div></div></div></div><div class="column is-half"><div class="card"><div class="card-image"><figure class="image is-1by1"><img src="assets/img/turtle.jpg" alt="Tortuga"/></figure></div><div class="card-content"><div class="content"><p class="title is4">PROYECTO DE RESTAURACIÓN DE LA TORTUGA MARINA</p><p>Un recurso educativo y activista que protege a la población de tortugas marinas en peligro de extinción en maneras que cumplen con las necesidades ecológicas de las tortugas marinas, los océanos y...</p></div></div></div></div><div class="column is-half"><div class="card"><div class="card-image"><figure class="image is-1by1"><img src="assets/img/ocean-sports.jpg" alt="Deportes Acuaticos"/></figure></div><div class="card-content"><div class="content"><p class="title is4">PUNTA MITA OCEAN SPORTS</p><p>Los embajadores oceánicos experimentados, profesionales y altamente calificados conforman el equipo central de Punta Mita Ocean Sports. Se asegurarán de que te mantengas tan activo como quieras en el paraíso tropical de Punta Mita </p></div></div></div></div></div></div></section>
 </div>
 <br />
 <br />
@@ -194,12 +199,12 @@
         <div class="form-group row">
             <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Sobre: </label>
             <div class="col-sm-10">
-                <select class="form-control form-control-lg">
+                <select name="sobre" class="form-control form-control-lg">
                     <option>Por favor, elija una</option>
-                    <opcion value="1">Administracion</opcion>
-                    <opcion value="2">Resitendes</opcion>
-                    <opcion value="3">Resorts, Casas y Villas</opcion>
-                    <opcion value="4">Informacion General</opcion>
+                    <option value="1">Administracion</opcion>
+                    <option value="2">Resitendes</opcion>
+                    <option value="3">Resorts, Casas y Villas</opcion>
+                    <option value="4">Informacion General</opcion>
                 </select>
             </div>
         </div>
@@ -227,11 +232,32 @@
 </div>
 <br/>
 <br/>
+<footer class="border-top footer">
+  <div class="container">
+      <p>2021 - Punta Mita HOA</p>    
+  </div>
+</footer>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="puntaHOA/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+       $(document).ready(function(){
+        const navbar = document.querySelector('nav.navbar');
+        $('.toast').toast('show');
+        window.addEventListener('scroll', () => {
+            console.info('Evento activado \nnivel de scroll:'+window.scrollY);
+            if (window.scrollY > 95){
+                navbar.classList.add('is-fixed-top');
+            }
+            else{
+                navbar.classList.remove('is-fixed-top');
+            }
+        });
+    });
+    </script>
  </body>
-      <footer class="border-top footer">
-        <div class="container">
-            <p>2021 - Punta Mita HOA</p>    
-        </div>
-    </footer>  
  <html>
+
+ <?php mysqli_close($conn); ?>
  

@@ -44,7 +44,7 @@
  </head>
  <style>
     body {
-        background-image: url('puntaHOA/images/4.jpg');
+        background-image: url('assets/img/iniciar_sesion_background.jpg');
         background-size: cover;
         height: 100vh;
     }

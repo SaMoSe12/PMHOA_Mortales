@@ -16,7 +16,7 @@
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("location: homeAdmin.php");
+         header("location: homeAdmin.php?pag=1");
       }else {
          $error = "Usuario y Contraseña incorrectos";
       }

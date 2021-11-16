@@ -13,7 +13,7 @@
     $offset = ($pag-1) * $limit;
 
 
-    $sql = "SELECT SQL_CALC_FOUND_ROWS idResidente, nombreResidente, apellidoResidente, propiedad, user, correoResidente, idFraccionamiento FROM catalogoresidentes LIMIT $offset, $limit";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS idControl, idFraccionamiento, idAnuncio, activo FROM controlanunciosfracc LIMIT $offset, $limit";
     $sqlTotal = "SELECT FOUND_ROWS() as total";
 
     $rs = mysqli_query($conn,$sql);
@@ -105,64 +105,55 @@ function myFunction() {
                 </button>
                 <div class="d-flex flex-row-reverse bd-highlight">
                    <div class="p-2 bd-highlight"><a href="logout.php">Cerrar Sesión</a></div> 
-                   <div class="p-2 bd-highlight"><a href="notificaciones.php?pag=1" style="color: black;">Notificaciones</a></div>
+                   <div class="p-2 bd-highlight"><a href="homeAdmin.php?pag=1" style="color: black;">Residentes</a></div>
                    <div class="p-2 bd-highlight"><a href="homeDocumentos.php?pag=1" style="color: black;">Documentos</a></div>
                    <div class="p-2 bd-highlight"><a style="color: black;">Bienvenido <?php echo $login_session; ?></a></div>
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container" id="residentes">   
-    <?php 
-            if(!empty($error)){
-            echo '<div class="alert alert-danger">' . $error . '</div>';
-            }  
-            if(!empty($alerta)){
-            echo '<div class="alert alert-success">' . $alerta . '</div>';
-            }      
-    ?> 
-    <h1>Registro de Residentes</h1>
-    <br/>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca el dato que desea filtrar">
-    <table id="data_table" class="table table-striped">
-       <thead>
+    </header>  
+   <div class="container" id="notificaciones">
+        <h1>Notificaciones</h1>
+        <table id="data_table" class="table table-striped">
+            <thead>
            <tr>
-           <th>Clave del Residente</th>
-           <th>Nombre del Residente</th>  
-           <th>Propiedad</th> 
-           <th>Usuario</th>  
-           <th>Correo Electrónico</th> 
-           <th>Condominio</th>     
+           <th>Clave de Control</th> 
+           <th>Fraccionamiento</th> 
+           <th>Mensaje</th> 
+           <th>Estatus</th>
            <th>Acción</th>  
            </tr>
-       </thead>
-       <tbody>
-       <?php
-         while ($row = mysqli_fetch_assoc($rs))
-         {
-          $id = $row["idResidente"];
-          $name = htmlentities($row["nombreResidente"]." ".$row["apellidoResidente"]);
-          $property = htmlentities($row["propiedad"]);
-          $user = htmlentities($row["user"]);
-          $mail = htmlentities($row["correoResidente"]);
-          $sql = mysqli_query($conn,"select nombreFracc from catalogofraccionamiento where idFraccionamiento = ".$row["idFraccionamiento"]." ");
-          $row = mysqli_fetch_array($sql,MYSQLI_ASSOC);
-          $fracc =  $row["nombreFracc"];
-       ?>
-            <tr>
-            <td><?php echo $id; ?></td>
-            <td><?php echo $name; ?></td>
-            <td><?php echo $property; ?></td>
-            <td><?php echo $user; ?></td>
-            <td><?php echo $mail; ?></td>
-            <td><?php echo $fracc; ?></td>
-            <td><a href="editarResidente.php?EDITAR_ID=<?php echo $id; ?>"><i class="fas fa-user-edit"></i></a></td>
-            </tr>
-       <?php
-         }
-       ?>
-       </tbody>
-       <tfoot>
+            </thead>
+            <tbody>
+            <?php
+             while ($row = mysqli_fetch_assoc($rs))
+             {
+              $id = $row["idControl"];
+              $sq = mysqli_query($conn,"select nombreFracc from catalogofraccionamiento where idFraccionamiento = ".$row["idFraccionamiento"]." ");
+              $ro = mysqli_fetch_array($sq,MYSQLI_ASSOC);
+              $condo = htmlentities($ro["nombreFracc"]);
+              $sql = mysqli_query($conn,"select Mensaje from controlanuncios where idAnuncio = ".$row["idAnuncio"]." ");
+              $roe = mysqli_fetch_array($sql,MYSQLI_ASSOC);
+              $desc =  $roe["Mensaje"];
+              $est = $row["activo"];
+              if($est == "1"){
+                $stat = "Activo";
+              }else{
+                $stat = "Inactivo";
+              }
+            ?>
+                <tr>
+                <td><?php echo $id; ?></td>
+                <td><?php echo $condo; ?></td>
+                <td><?php echo $desc; ?></td>
+                <td><?php echo $stat; ?></td>
+                <td><a href="controlfracc.php?EDITAR_ID=<?php echo $id; ?>"><i class="fas fa-edit"></i></a></td>
+                </tr>
+            <?php
+             }
+            ?>
+            </tbody>
+             <tfoot>
            <tr>
            <td colspan="7" style="text-align: right;">
            <?php
@@ -178,9 +169,10 @@ function myFunction() {
             </tr>
         </tfoot>
         </table>
-    <div class="float-right">
-    <button type="button" class="btn btn-info"><a href="formusuario.php">Añadir usuario</a></button> 
-    </div> 
+         <div class="float-right">
+            <button type="button" class="btn btn-info"><a href="notificaciones.php?pag=1">Listado de Notificaciones</a></button> 
+            <button type="button" class="btn btn-info"><a href="controlnotif.php">Asignar Notificacion</a></button>
+         </div>
     </div>
     <br/>
          <?php 
