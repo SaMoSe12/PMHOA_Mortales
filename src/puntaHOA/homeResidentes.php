@@ -2,6 +2,7 @@
 <?php
    include("databaseconnect.php");
    include('session.php');
+   $_SESSION['fraccionamiento'] = $idFracc;
    $sql = mysqli_query($conn,"select nombreFracc, descripcionFracc from CatalogoFraccionamiento where idFraccionamiento = '$idFracc' ");
    $row = mysqli_fetch_array($sql,MYSQLI_ASSOC);
    $fracc =  $row["nombreFracc"];
@@ -21,7 +22,8 @@
  </head>
   <style>
     footer {
-   position: fixed;
+   display: block;
+   position: relative;
    left: 0;
    bottom: 0;
    width: 100%;
@@ -33,7 +35,7 @@
    background-image: url('puntaHOA/images/fraccionamientos/<?php echo $idFracc; ?>.jpg');
    background-size: cover;
    background-position: center;
-   height: 6rem;
+   height: 16rem;
    transition: height .3s ease-in;
     }
     .navbar.is-fixed-top{
@@ -50,6 +52,19 @@
       color:grey;
       text-decoration:none
    }
+   .navbar>.container{
+       align-items: flex-start;
+   }
+   .navbar.is-fixed-tio>.container{
+       align-items: center;
+   }
+   #comprobantes .col-sm a p, #formatos .col-sm a p {
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.025rem;
+        letter-spacing: .25ch;
+        margin: .5rem auto auto
+   }
    p {
        text-align : justify;
    }
@@ -61,6 +76,12 @@
        text-decoration: none;
        color: black;
    }
+   @media screen and (max-width: 768px){
+       .toast{
+            width: 100vw;
+
+        }
+    }
    </style>
  <body>    
     <header>
@@ -71,14 +92,14 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>-->
-                <div class="d-flex flex-row-reverse bd-highlight">
+                <!--<div class="d-flex flex-row-reverse bd-highlight">
                   <div class="p-2 bd-highlight"><a href="logout.php">Cerrar Sesión</a></div> 
                   <div class="p-2 bd-highlight"><a href="#uco">UCO</a></div>
                   <div class="p-2 bd-highlight"><a href="#amenidades">Amenidades</a></div>
                   <div class="p-2 bd-highlight"><a href="#formatos">Formatos</a></div> 
                   <div class="p-2 bd-highlight"><a href="#comprobantes">Comprobantes</a></div> 
                   <div class="p-2 bd-highlight"><a>Bienvenido <?php echo $login_session; ?></a></div>                                                 
-               </div>
+               </div>-->
             </div>
         </nav>
     </header>
@@ -108,7 +129,7 @@
      mysqli_close($conn);
     ?>
 <div id="bienvenida" class="container">    
-    <h3 style="color:#bc9742">BIENVENIDO</h3>   
+    <h3 style="color:#bc9742">BIENVENIDO <?php echo $login_session; ?></h3>   
     <p>
       <?php echo $descfracc; ?>
     </p>
@@ -118,7 +139,7 @@
 </div>
 <br />
 <div id="comprobantes" class="container">
-    <h3 style="color:#bc9742">COMPROBANTES</h3>
+    <h3 style="color:#bc9742" class="text-md-center text-lg-left">COMPROBANTES</h3>
     <center>
         <div class="row">
             <div class="col-sm">
@@ -202,7 +223,7 @@
                 <select name="sobre" class="form-control form-control-lg">
                     <option>Por favor, elija una</option>
                     <option value="1">Administracion</opcion>
-                    <option value="2">Resitendes</opcion>
+                    <option value="2">Recidentes</opcion>
                     <option value="3">Resorts, Casas y Villas</opcion>
                     <option value="4">Informacion General</opcion>
                 </select>
@@ -246,7 +267,6 @@
         const navbar = document.querySelector('nav.navbar');
         $('.toast').toast('show');
         window.addEventListener('scroll', () => {
-            console.info('Evento activado \nnivel de scroll:'+window.scrollY);
             if (window.scrollY > 95){
                 navbar.classList.add('is-fixed-top');
             }
@@ -258,6 +278,4 @@
     </script>
  </body>
  <html>
-
- <?php mysqli_close($conn); ?>
  

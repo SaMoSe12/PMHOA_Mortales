@@ -25,6 +25,9 @@ function navbar(){
 function footer(){
     require_once 'components/footer.comp.php';
 }
+function ucoModal(){
+    require_once 'components/uco.comp.php';
+}
 
 function loadTemplate(string $template){
     require_once 'paths/' . $template . '.path.php';
@@ -33,30 +36,35 @@ function loadTemplate(string $template){
 Route::add('/', function(){
     navbar();
     loadTemplate('index');
+    ucoModal();
     footer();
 });
 
 Route::add('/quienes-somos', function(){
     navbar();
     loadTemplate('quienes_somos');
+    ucoModal();
     footer();
 });
 
 Route::add('/servicios', function(){
     navbar();
     loadTemplate('servicios');
+    ucoModal();
     footer();
 });
 
 Route::add('/bienes-raices', function(){
     navbar();
     loadTemplate('bienes_raices');
+    ucoModal();
     footer();
 });
 
 Route::add('/amenidades', function(){
     navbar();
     loadTemplate('amenidades');
+    ucoModal();
     footer();
 });
 
@@ -68,12 +76,14 @@ Route::add('/apoyo-residentes', function(){
 Route::add('/contacto', function(){
     navbar();
     loadTemplate('contacto');
+    ucoModal();
     footer();
 });
 
 Route::add('/galeria', function(){
     navbar();
     loadTemplate('galeria');
+    ucoModal();
     footer();
 });
 
@@ -86,7 +96,9 @@ Route::add('/iniciar-sesion', function(){
 },'post');
 Route::add('/home-residentes', function() {
     require_once('puntaHOA/homeResidentes.php');
+    ucoModal();
 });
+
 Route::add('/admin', function() {
     require_once('puntaHOA/homeAdmin.php');
 });

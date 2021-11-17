@@ -1,0 +1,74 @@
+button#uco-button(data-target="uco-modal")
+
+.modal#uco-modal
+    .modal-background 
+    .modal-card 
+        header.modal-card-head 
+            p.modal-card-title UCO 
+            button.delete(aria-label="close")
+        section.modal-card-body 
+            p Por favor llena el formulario a continuación y nosotros te contactaremos pronto 
+
+            form.mt-4.mb-4
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="tema").title.is-6  Sobre: 
+                    .field-body 
+                        .field 
+                            .control 
+                                .select.is-fullwidth 
+                                    select#tema(name="tema")
+                                        option Selecciona un tema  
+                                        option(value="1") Administracion 
+                                        option(value="2") Clientes
+                                        option(value="3") Resorts, Casas y Villas
+                                        option(value="4") Informacion General
+                
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="asunto").title.is-6  Asunto: 
+                    .field-body 
+                        .field 
+                            .control 
+                                input.input#asunto(type="text", name="asunto")
+                
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="condominio").title.is-6  Condominio: 
+                    .field-body 
+                        .field 
+                            .control 
+                                .select.is-fullwidth 
+                                    select.required#condominio(name="condominio", required="true")
+                                        option Selecciona un condominio 
+                                        option(value="1") El Encanto
+                                        option(value="2") Bahia Signature Estates
+                                        option(value="3") Four Seasons Residences
+                                        option(value="5") Hacienda de Mita
+                                        option(value="6") Iyari
+                                        option(value="7") Kupuri
+                                        option(value="8") Las Marietas
+                                        option(value="9") Lagos del Mar
+                                        option(value="10") Ranchos Estates
+                                        option(value="11") Porta Fortuna
+                                        option(value="12") TAU Residences
+                                        option(value="13") Signature Estates
+                                        option(value="14") Pacifico Estates
+                                        option(value="15") Las Palmas
+                                        option(value="16") La Serenata
+
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="problema").title.is-6  Problema: 
+                    .field-body 
+                        .field 
+                            .control 
+                                textarea.textarea#problema(type="text", name="problema")
+
+        footer.modal-card-foot 
+            button.button.is-success#uco-modal-submit Enviar 
+| <?php 
+|   if(isset($_SESSION['fraccionamiento'])){
+| echo "<script> document.querySelector('select#condominio').selectedIndex = " . $_SESSION['fraccionamiento'] . "</script>";
+|   }
+|?>

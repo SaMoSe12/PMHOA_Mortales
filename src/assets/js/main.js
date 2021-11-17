@@ -1,6 +1,9 @@
 const NAVBARBURGERS = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'));
 const _HTML = document.querySelector('html');
 const NAVBAR = document.querySelector('nav.navbar');
+const UCOBUTTON = document.querySelector('#uco-button');
+const CLOSEBUTTON = document.querySelector('button.delete');
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Logica para que los menus de hamburgesa enseñen el menu del navbar
@@ -29,5 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    UCOBUTTON.addEventListener('click', (e) => {
+        var target = document.getElementById(e.target.dataset['target']);
+        target.classList.add('is-active');
+        _HTML.classList.add('is-clipped');
+    });
 
+    CLOSEBUTTON.addEventListener('click', (e)=>{
+        var target = document.querySelector('.modal.is-active');
+        target.classList.remove('is-active');
+        _HTML.classList.remove('is-clipped');
+    });
+    document.addEventListener('keydown', (e) => {
+        var modal = document.querySelector('.modal.is-active');
+        if (modal && e.code === 'Escape'){
+            modal.classList.remove('is-active');
+            _HTML.classList.remove('is-clipped');
+        }
+    })
 });

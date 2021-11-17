@@ -27,6 +27,20 @@ a
         color: inherit
         text-decoration: none
 
+button#uco-button
+    width: 3.5rem
+    height: 3.5rem
+    border: none
+    border-radius: 5rem
+    background-image: url('../img/uco-dispatcher-center_untitled-font-1.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: center
+    position: fixed
+    bottom: 2.5rem
+    right: 1.5rem
+    cursor: pointer
+
 body
     overflow-x: hidden
 
@@ -78,6 +92,9 @@ body
     background-size: cover
     background-position: center
     background-repeat: no-repeat
+
+    & .titulo
+        display: none
 
     &.quienes-somos
         background-image: url('../img/header-quienes-somos.jpg')
@@ -148,15 +165,34 @@ footer.footer
                     span
                         height: 100%
 
+#uco-modal
+    .modal-card-head
+        p.modal-card-title
+            color: pmh-dorado
+            font-weight: 600
+            text-align: center
+            letter-spacing: .25ch 
+            font-size: 1.5rem
+            text-transform: uppercase
+
+
+
 @media screen and (max-width: 768px)
+    #home
+        .titulo
+            display: block
+            position: relative
+            top: 35%
+            width: 100%
+            padding: 1rem 0 1rem 1rem
+            background-color: rgba(255,255,255,0.5)
     .titulo
-        position: relative
-        top: -270px
-        width: 100%
-        padding: 1rem 0 1rem 1rem
-        background-color: rgba(0,0,0,0.5)
+        display: none
 
     .navbar
+        .navbar-burger
+            align-self: center
+
         .navbar-menu
             .navbar-start
                 a.navbar-item
@@ -170,4 +206,50 @@ footer.footer
                 img,
                 .navbar-dropdown
                     display: none
+    #servicios
+        .columns
+            .column
+                figure.image
+                    img
+                        margin: 2rem auto 1rem
+                p.subtitle
+                    margin: 2rem 0 1.2rem;
+                    text-align: center
+                p:not(.subtitle)
+                    margin-left: .25rem
+                    margin-right: .25rem
+                    text-align: justify
+    #bienes-raices
+        margin-top: 2rem
+        p
+            margin: auto .25rem auto 
+            text-align: justify
+    
+    #amenidades
+        margin-top: 2.5rem
 
+        .card
+            .card-content
+                .content
+                    a > p
+                        text-align: center
+                    p
+                        text-align: justify
+    
+    #quienes-somos
+        margin-top: 2rem
+
+        p
+            margin: auto .25rem .25rem
+            text-align: justify
+        
+        h3.subtitulo
+            text-align: center
+        
+        .columns
+            .column
+                h3
+                    text-align: center
+                p 
+                    text-align: justify
+                    margin: auto .25rem

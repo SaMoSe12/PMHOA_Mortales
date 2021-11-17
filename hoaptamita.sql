@@ -44,6 +44,57 @@ INSERT INTO `CatalogoAdministrativos` VALUES (1,'John','Perez','admin@correo.com
 UNLOCK TABLES;
 
 --
+-- Table structure for table `CatalogoAmenidades`
+--
+
+DROP TABLE IF EXISTS `CatalogoAmenidades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CatalogoAmenidades` (
+  `idAmenidad` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreAmenidad` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` varchar(1000) COLLATE utf8_spanish_ci NOT NULL,
+  `idFraccionamiento` int(11) NOT NULL,
+  PRIMARY KEY (`idAmenidad`),
+  KEY `CatalogoAmenidades_FK` (`idFraccionamiento`),
+  CONSTRAINT `CatalogoAmenidades_FK` FOREIGN KEY (`idFraccionamiento`) REFERENCES `CatalogoFraccionamiento` (`idFraccionamiento`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CatalogoAmenidades`
+--
+
+LOCK TABLES `CatalogoAmenidades` WRITE;
+/*!40000 ALTER TABLE `CatalogoAmenidades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CatalogoAmenidades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CatalogoDocumentos`
+--
+
+DROP TABLE IF EXISTS `CatalogoDocumentos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CatalogoDocumentos` (
+  `idTipoDocumento` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`idTipoDocumento`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CatalogoDocumentos`
+--
+
+LOCK TABLES `CatalogoDocumentos` WRITE;
+/*!40000 ALTER TABLE `CatalogoDocumentos` DISABLE KEYS */;
+INSERT INTO `CatalogoDocumentos` VALUES (1,'Servicios'),(2,'Mantenimiento');
+/*!40000 ALTER TABLE `CatalogoDocumentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `CatalogoFraccionamiento`
 --
 
@@ -185,11 +236,13 @@ CREATE TABLE `ControlAnunciosFracc` (
   `idFraccionamiento` int(11) NOT NULL,
   `idAnuncio` int(11) NOT NULL,
   `activo` tinyint(1) DEFAULT NULL,
+  `idControl` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idControl`),
   KEY `ControlAnunciosFracc_FK` (`idFraccionamiento`),
   KEY `ControlAnunciosFracc_FK_1` (`idAnuncio`),
   CONSTRAINT `ControlAnunciosFracc_FK` FOREIGN KEY (`idFraccionamiento`) REFERENCES `CatalogoFraccionamiento` (`idFraccionamiento`) ON UPDATE CASCADE,
   CONSTRAINT `ControlAnunciosFracc_FK_1` FOREIGN KEY (`idAnuncio`) REFERENCES `ControlAnuncios` (`idAnuncio`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,8 +251,39 @@ CREATE TABLE `ControlAnunciosFracc` (
 
 LOCK TABLES `ControlAnunciosFracc` WRITE;
 /*!40000 ALTER TABLE `ControlAnunciosFracc` DISABLE KEYS */;
-INSERT INTO `ControlAnunciosFracc` VALUES (1,1,1),(1,2,1);
+INSERT INTO `ControlAnunciosFracc` VALUES (1,2,0,1);
 /*!40000 ALTER TABLE `ControlAnunciosFracc` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HistoricoDocumentos`
+--
+
+DROP TABLE IF EXISTS `HistoricoDocumentos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `HistoricoDocumentos` (
+  `idHistorico` int(11) NOT NULL AUTO_INCREMENT,
+  `Periodo` date NOT NULL,
+  `idResidente` int(11) NOT NULL,
+  `idTipoDocumento` int(11) NOT NULL,
+  `nombreDoc` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`idHistorico`),
+  KEY `HistoricoDocumentos_FK` (`idResidente`),
+  KEY `HistoricoDocumentos_FK_1` (`idTipoDocumento`),
+  CONSTRAINT `HistoricoDocumentos_FK` FOREIGN KEY (`idResidente`) REFERENCES `CatalogoResidentes` (`idResidente`) ON UPDATE CASCADE,
+  CONSTRAINT `HistoricoDocumentos_FK_1` FOREIGN KEY (`idTipoDocumento`) REFERENCES `CatalogoDocumentos` (`idTipoDocumento`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `HistoricoDocumentos`
+--
+
+LOCK TABLES `HistoricoDocumentos` WRITE;
+/*!40000 ALTER TABLE `HistoricoDocumentos` DISABLE KEYS */;
+INSERT INTO `HistoricoDocumentos` VALUES (1,'2021-11-01',1,1,'gasyaguanoviembre.pdf');
+/*!40000 ALTER TABLE `HistoricoDocumentos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -211,4 +295,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-08 23:05:32
+-- Dump completed on 2021-11-16 20:12:15
