@@ -2,7 +2,8 @@ const NAVBARBURGERS = Array.prototype.slice.call(document.querySelectorAll('.nav
 const _HTML = document.querySelector('html');
 const NAVBAR = document.querySelector('nav.navbar');
 const UCOBUTTON = document.querySelector('#uco-button');
-const CLOSEBUTTON = document.querySelector('button.delete');
+const MODALBUTTONES = document.querySelectorAll('.modalButton');
+const CLOSEBUTTONS = document.querySelectorAll('button.delete');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -37,11 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
         target.classList.add('is-active');
         _HTML.classList.add('is-clipped');
     });
-
-    CLOSEBUTTON.addEventListener('click', (e)=>{
-        var target = document.querySelector('.modal.is-active');
-        target.classList.remove('is-active');
-        _HTML.classList.remove('is-clipped');
+    MODALBUTTONES.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            //console.log(e.path[1]);
+            var target = document.getElementById(e.path[1].dataset['target']);
+            target.classList.add('is-active');
+            _HTML.classList.add('is-clipped');
+        });
+    });
+    CLOSEBUTTONS.forEach((closeButton)=>{
+        closeButton.addEventListener('click', (e)=>{
+            var target = document.querySelector('.modal.is-active');
+            target.classList.remove('is-active');
+            _HTML.classList.remove('is-clipped');
+        });
     });
     document.addEventListener('keydown', (e) => {
         var modal = document.querySelector('.modal.is-active');

@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  </head>
   <style>
+    body{
+        background-image: url('../assets/img/greca.png'), url('../assets/img/greca_D.png');
+        background-position: left, right;
+        background-repeat: no-repeat repeat, no-repeat repeat;
+
+    }
     footer {
    display: block;
    position: relative;
@@ -58,12 +64,13 @@
    .navbar.is-fixed-tio>.container{
        align-items: center;
    }
-   #comprobantes .col-sm a p, #formatos .col-sm a p {
+   #comprobantes .col-sm a p, 
+   #formatos .col-sm a p {
         text-align: center;
         font-weight: 500;
         font-size: 1.025rem;
         letter-spacing: .25ch;
-        margin: .5rem auto auto
+        margin: .5rem auto auto;
    }
    p {
        text-align : justify;
@@ -79,7 +86,16 @@
    @media screen and (max-width: 768px){
        .toast{
             width: 100vw;
-
+        }
+        body{
+            background-image: none;
+        }
+        .navbar>.container{
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+        .navbar>.container>h1{
+            font-size: 1.5rem;
         }
     }
    </style>
@@ -92,25 +108,25 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>-->
-                <!--<div class="d-flex flex-row-reverse bd-highlight">
-                  <div class="p-2 bd-highlight"><a href="logout.php">Cerrar Sesión</a></div> 
-                  <div class="p-2 bd-highlight"><a href="#uco">UCO</a></div>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                  <div class="p-2 bd-highlight"><a href="/logout">Cerrar Sesión</a></div> 
+                  <!--<div class="p-2 bd-highlight"><a href="#uco">UCO</a></div>
                   <div class="p-2 bd-highlight"><a href="#amenidades">Amenidades</a></div>
                   <div class="p-2 bd-highlight"><a href="#formatos">Formatos</a></div> 
                   <div class="p-2 bd-highlight"><a href="#comprobantes">Comprobantes</a></div> 
-                  <div class="p-2 bd-highlight"><a>Bienvenido <?php echo $login_session; ?></a></div>                                                 
-               </div>-->
+                  <div class="p-2 bd-highlight"><a>Bienvenido <?php echo $login_session; ?></a></div>-->
+               </div>
             </div>
         </nav>
     </header>
     <?php
-    $sql = "SELECT idAnuncio FROM ControlAnunciosFracc WHERE idFraccionamiento = '$idFracc' AND activo = 1 ";
-    $resultset = mysqli_query($conn, $sql) or die("No existe conexión con la base de datos:". mysqli_error($conn));
-    while( $notificaciones = mysqli_fetch_assoc($resultset) ) {
-    $idAnun = $notificaciones ['idAnuncio'];
-    $query = mysqli_query($conn,"SELECT Mensaje FROM ControlAnuncios WHERE idAnuncio = '$idAnun' ");
-    $row = mysqli_fetch_array($query,MYSQLI_ASSOC);
-    $message = $row["Mensaje"];
+        $sql = "SELECT idAnuncio FROM ControlAnunciosFracc WHERE idFraccionamiento = '$idFracc' AND activo = 1 ";
+        $resultset = mysqli_query($conn, $sql) or die("No existe conexión con la base de datos:". mysqli_error($conn));
+        while( $notificaciones = mysqli_fetch_assoc($resultset) ) {
+        $idAnun = $notificaciones ['idAnuncio'];
+        $query = mysqli_query($conn,"SELECT Mensaje FROM ControlAnuncios WHERE idAnuncio = '$idAnun' ");
+        $row = mysqli_fetch_array($query,MYSQLI_ASSOC);
+        $message = $row["Mensaje"];
     ?>
     <div class="float-right">
     <div class="toast" data-autohide="false">
@@ -125,8 +141,8 @@
     </div>
     </div>
     <?php
-     }
-     mysqli_close($conn);
+        }
+        mysqli_close($conn);
     ?>
 <div id="bienvenida" class="container">    
     <h3 style="color:#bc9742">BIENVENIDO <?php echo $login_session; ?></h3>   

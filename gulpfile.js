@@ -1,16 +1,18 @@
-const gulp = require('gulp');
-const log = require('fancy-log');
-const del = require('del');
-const stylus = require('gulp-stylus');
-const pug = require('gulp-pug');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const cssmin = require('gulp-clean-css');
-const sourcemaps = require('gulp-sourcemaps');
-const bsp = require('bulma-stylus-plus');
-const imagemin = require('gulp-imagemin');
+const gulp = require('gulp'); // Gulp 
+const del = require('del'); // Eliminar archivos
+const stylus = require('gulp-stylus'); // Stylus
+const pug = require('gulp-pug'); // Pug
+const concat = require('gulp-concat'); // Concatenar muchos archivos en uno solo
+const uglify = require('gulp-uglify'); // Minizar JS
+const rename = require('gulp-rename'); // Renombrar archivos 
+const cssmin = require('gulp-clean-css'); // Minimizar css
+const sourcemaps = require('gulp-sourcemaps'); // Hacer Sourcemaps auto
+const bsp = require('bulma-stylus-plus'); // Bulma para Stylus
+const imagemin = require('gulp-imagemin'); // minimizar imagenes
 
+const log = require('fancy-log'); // Logger 
+
+// Convierte los archivos .pug en .php
 gulp.task('pug', () => {
     return gulp.src('src/**/*.pug')
     .pipe(pug())

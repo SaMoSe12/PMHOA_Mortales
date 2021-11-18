@@ -12,21 +12,35 @@ section#bienvenida
         .columns.is-desktop
             .column 
                 figure.image.is-96x96.m-3
-                    a(href="assets/documents/folleto-mapa.pdf" download="folleto-mapa.pdf" target="_blank") 
+                    a.modalButton(data-target="mapa")
                         img(src="assets/img/map-pin.svg", alt="Pin en mapa")
-                    a(href="assets/documents/folleto-mapa.pdf" download="folleto-mapa.pdf" target="_blank") 
+                    a.modalButton(data-target="mapa") 
                         p mapa de punta mita
             
             .column 
                 figure.image.is-96x96.m-3
-                    a(href="assets/documents/folleto-mapa.pdf" download="folleto-mapa.pdf" target="_blank") 
+                    a(href="assets/documents/folleto.pdf" download="folleto.pdf" target="_blank") 
                         img(src="assets/img/icon-map-brochure.svg", alt="Folleto")
-                    a(href="assets/documents/folleto-mapa.pdf" download="folleto-mapa.pdf" target="_blank") 
+                    a(href="assets/documents/folleto.pdf" download="folleto.pdf" target="_blank") 
                         p folleto
             
             .column 
                 figure.image.is-96x96.m-3
-                    a(href="assets/img/qr-code.jpg" download="qr-code.jpg" target="_blank") 
+                    a.modalButton(data-target="qr")
                         img(src="assets/img/icon-qr.svg", alt="QR code")
-                    a(href="assets/img/qr-code.jpg" download="qr-code.jpg" target="_blank") 
+                    a.modalButton(data-target="qr")
                         p código qr
+
+.modal#mapa 
+    .modal-background 
+    .modal-content 
+        p.image
+            img(src="assets/img/mapa.jpg", alt="Mapa de Punta Mita")
+    button.modal-close.is-large.delete(aria-label="close")
+
+.modal#qr
+    .modal-background 
+    .modal-content 
+        p.image
+            img(src="assets/img/qr-code.jpg", alt="Mapa de Punta Mita")
+    button.modal-close.is-large.delete(aria-label="close")

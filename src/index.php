@@ -105,6 +105,9 @@ Route::add('/admin', function() {
 Route::add('/reestablecer', function(){
     require_once('puntaHOA/reestablecer.php');
 });
+Route::add('/logout', function(){
+    require_once('puntaHOA/logout.php');
+});
 Route::run(BASEPATH);
 ?>
 <script src="<?php echo 'assets/js/main.min.js';?>"></script>
