@@ -238,10 +238,10 @@
             <div class="col-sm-10">
                 <select name="sobre" class="form-control form-control-lg">
                     <option>Por favor, elija una</option>
-                    <option value="1">Administracion</opcion>
-                    <option value="2">Recidentes</opcion>
+                    <option value="1">Administración</opcion>
+                    <option value="2">Residentes</opcion>
                     <option value="3">Resorts, Casas y Villas</opcion>
-                    <option value="4">Informacion General</opcion>
+                    <option value="4">Información General</opcion>
                 </select>
             </div>
         </div>

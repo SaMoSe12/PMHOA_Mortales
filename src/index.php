@@ -108,6 +108,11 @@ Route::add('/reestablecer', function(){
 Route::add('/logout', function(){
     require_once('puntaHOA/logout.php');
 });
+
+Route::add('/prueba-pdf', function(){
+    require_once('generar-pdf.php');
+}, 'get');
+
 Route::run(BASEPATH);
 ?>
 <script src="<?php echo 'assets/js/main.min.js';?>"></script>

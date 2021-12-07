@@ -1,0 +1,39 @@
+Por medio de la presente  el Sr./Sra. {$nombre_arrendador}, como propietario de la casa identificada como {$propiedad} me  permito  dar  a  ustedes formal  aviso  de  que   he  decidido prestar al Sr./Sra. {$nombre_arrendatario} la casa habitación ubicada   en  lote 	del  Subcondominio {$subcondominio}, dentro  del Condominio  Maestro Punta Mita Punta Mita, ubicado en  el  municipio  de Bahía  de Banderas,   Estado  de  Nayarit, México.
+
+Copia de su identificación se anexa a la presente:
+Pasaporte
+Credencial de elector
+Licencia para conducir
+Otro
+Especificar: {$otro_identificacion}
+La  concesión  del   uso de la   casa   habitación  es  bajo la modalidad de:
+
+Arrendamiento
+Comodato
+Préstamo
+Familiares
+Huéspedes y propietario en casa
+
+Periodo en el que se tiene derecho de uso de la casa, del {$fecha_desde} a {$fecha_hasta}
+por  lo que  no  es  el  caso  de un  uso  concedido ni  para fines comerciales dentro  de  sistemas de propiedad fracciona!, clubes vacacionales o cualquier  otro sistema que  funcione como  tal,  ni bajo cualquiera otra figura análoga.
+
+
+Me obligo  mancomunada, solidaria  e ilimitadamente  responsable de  cualquier  contingencia  o daño  que  el usuario pueda  generar a áreas  privativas o comunes  dentro  del  Condominio Maestro  Punta Mita. De este modo quedo enterado que las violaciones a las reglas dentro de Punta Mita me pueden ser aplicadas por el incumplimiento de las personas señaladas o sus invitados, llegando el caso a sanciones económicas o de restricciones de uso a las amenidades y áreas comunes dentro del desarrollo.
+
+
+La casa en cuestión,  será utilizada exclusivamente hasta por          personas,  quienes  harán un uso adecuado y respetuoso de los reglamentos vigentes de Punta Mita. Los datos del responsable del uso de la casa son los siguientes:
+
+
+
+
+
+Observaciones:
+Nombre
+Dirección
+Teléfono
+Correo electrónico
+Del mismo modo  autorizo a que  el administrador  del  Condominio Maestro    Punta   Mita   puede  verificar   y hacer cumplir en   todo    momento   lo establecido en la presente y el cumplimiento de las reglas adjuntas de manera general y a cualquier otra violación dentro del Desarrollo Punta Mita.
+
+Sirva la presente para los efectos legales a que haya lugar.
+
+Atentamente,

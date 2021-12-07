@@ -9,7 +9,7 @@ pmh-footer = #61605e
     color: pmh-dorado
     letter-spacing: .25ch
     margin: 1rem 0 2.25rem 0
-    text-align: left
+    text-align: center
     text-decoration: none
     text-transform: uppercase
     font-size: 1.5rem
@@ -41,7 +41,7 @@ button#uco-button
     height: 3.5rem
     border: none
     border-radius: 5rem
-    background-image: url('../img/uco-dispatcher-center_untitled-font-1.svg')
+    background: url('../img/uco-dispatcher-center_untitled-font-1.svg'), pmh-fondo
     background-repeat: no-repeat
     background-size: contain
     background-position: center
@@ -59,7 +59,7 @@ body
             
             margin: 0rem 5rem 0rem 3.33rem
             img 
-                max-height: 4.5rem
+                max-height: 6rem
     .navbar-menu
         p
             display: flex
@@ -95,7 +95,7 @@ body
                         color: pmh-dorado
 
 #home
-    height: 100vh
+    height: 60vh
     
     background-image: url('../img/select-01.jpg')
     background-size: cover
@@ -194,7 +194,9 @@ footer.footer
             top: 35%
             width: 100%
             padding: 1rem 0 1rem 1rem
-            background-color: rgba(255,255,255,0.5)
+            background-color: rgba(255,255,255,0.7)
+            font-weight: 800
+            text-align: center
     .titulo
         display: none
 
@@ -215,6 +217,11 @@ footer.footer
                 img,
                 .navbar-dropdown
                     display: none
+    
+    #bienvenida 
+        .columns 
+            .column 
+                margin-bottom: 2rem
     #servicios
         .columns
             .column
