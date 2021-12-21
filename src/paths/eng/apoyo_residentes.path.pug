@@ -1,0 +1,70 @@
+#home.apoyo-residentes 
+
+section#apoyo-residentes 
+    .container
+        h1.titulo CUSTOMER SUPPORT
+        p.subtitulo Welcome! 
+        p Please fill the form below and we'll contact you soon.
+
+        form.mt-4.mb-4
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="tema").title.is-4  About: 
+                .field-body 
+                    .field 
+                        .control 
+                            .select.is-fullwidth 
+                                select#tema(name="tema")
+                                    option Please pick one.  
+                                    option(value="1") Administration 
+                                    option(value="2") Customers
+                                    option(value="3") Resorts, Homes y Villas
+                                    option(value="4") General Information
+            
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="asunto").title.is-4  Subject: 
+                .field-body 
+                    .field 
+                        .control 
+                            input.input#asunto(type="text", name="asunto")
+            
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="condominio").title.is-4  Condo: 
+                .field-body 
+                    .field 
+                        .control 
+                            .select.is-fullwidth 
+                                select.required#condominio(name="condominio", required="true")
+                                    option Please pick your condo. 
+                                    option(value="1") Maestr Condo
+                                    option(value="2") Signature Estates
+                                    option(value="3") La punta residencial
+                                    option(value="4") Ranchos
+                                    option(value="5") Lagos del Mar
+                                    option(value="6") Las Palmas
+                                    option(value="7") Haciendas del Mar
+                                    option(value="8") Ayia
+                                    option(value="9") La Serenata
+                                    option(value="10") El Encanto
+                                    option(value="11") Porta Fortuna
+                                    option(value="12") Las Cañadas
+                                    option(value="13") Kupuri
+                                    option(value="14") Four Seasons P.Villas
+
+            .field.is-horizontal
+                .field-label.is-normal
+                    label(for="problema").title.is-4  Problem: 
+                .field-body 
+                    .field 
+                        .control 
+                            textarea.textarea#problema(type="text", name="problema")
+            
+            .field.is-horizontal
+                .field-label 
+                .field-body 
+                    .field 
+                        .control 
+                            button.button.is-primary SEND
+                            

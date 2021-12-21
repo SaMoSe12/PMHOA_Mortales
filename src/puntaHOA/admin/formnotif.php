@@ -1,12 +1,12 @@
 <html>
 <?php
-   include("../databaseconnect.php");
+   include("puntaHOA/databaseconnect.php");
    include('session.php');  
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = mysqli_real_escape_string($conn,$_POST['mensaje']);
     $tipoMensaje = mysqli_real_escape_string($conn,$_POST['tipoMensaje']);
-    $insertar = "INSERT INTO controlanuncios (Mensaje, idTipoMensaje) VALUES ('$message','$tipoMensaje')";
+    $insertar = "INSERT INTO ControlAnuncios (Mensaje, idTipoMensaje) VALUES ('$message','$tipoMensaje')";
          if (mysqli_query($conn, $insertar)) {
           $alerta = "Se creo la notificacion de manera satifactoria";
          } else {
@@ -19,12 +19,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrativos</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/puntaHOA/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/site.css" />
-    <link rel="shortcut icon" type="image/jpg" href="../images/logo.png"/>
+    <link rel="stylesheet" href="/puntaHOA/css/site.css" />
+    <link rel="shortcut icon" type="image/jpg" href="/puntaHOA/images/logo.png"/>
  </head>
    <style>
     footer {
@@ -46,7 +46,7 @@
       text-decoration:none
     }
     #myInput {
-      background-image: url('../images/search.svg');
+      background-image: url('/puntaHOA/images/search.svg');
       background-position: 15px 15px;
       background-repeat: no-repeat;
       width: 100%;
@@ -71,15 +71,16 @@
      <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a href="homeAdmin.php?pag=1"><img src="../images/logo.png" width="120" height="120"></a>
+                <a href="/admin/home?pag=1"><img src="/puntaHOA/images/logo.png" width="120" height="120"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="d-flex flex-row-reverse bd-highlight">
-                   <div class="p-2 bd-highlight"><a href="logout.php">Cerrar Sesión</a></div> 
-                   <div class="p-2 bd-highlight"><a href="homeAdmin.php?pag=1" style="color: black;">Residentes</a></div>
-                   <div class="p-2 bd-highlight"><a href="homeDocumentos.php?pag=1" style="color: black;">Documentos</a></div>
+                   <div class="p-2 bd-highlight"><a href="/admin-logout">Cerrar Sesión</a></div> 
+                   <div class="p-2 bd-highlight"><a href="/admin/correos" style="color: black;">Correos</a></div>
+                   <div class="p-2 bd-highlight"><a href="/admin/notificaciones?pag=1" style="color: black;">Notificaciones</a></div>
+                   <div class="p-2 bd-highlight"><a href="/admin/documentos?pag=1" style="color: black;">Documentos</a></div>
                    <div class="p-2 bd-highlight"><a style="color: black;">Bienvenido <?php echo $login_session; ?></a></div>
                 </div>
             </div>
@@ -104,7 +105,7 @@
                 <select class="form-control" name="tipoMensaje" onchange="myFunction()" required>>
                     <option value="">Por favor, elija una opción</option>
                      <?php
-                        $sql_query = "SELECT idTipoMensaje, descripcion FROM catalogotipomensaje";
+                        $sql_query = "SELECT idTipoMensaje, descripcion FROM CatalogoTipoMensaje";
                         $results = mysqli_query($conn, $sql_query) or die("error base de datos:". mysqli_error($conn));
                         while( $descripcion = mysqli_fetch_assoc($results) ) {
                     ?>
@@ -123,7 +124,7 @@
                 <input type="submit" value="Añadir" class="btn btn-success" id="myBtn">
                 </div>
                 <div class="col">
-                <button type="button" class="btn btn-danger"><a href="notificaciones.php?pag=1" style="color: white;">Regresar</a></button>
+                <button type="button" class="btn btn-danger"><a href="/admin/notificaciones?pag=1" style="color: white;">Regresar</a></button>
                 </div>
             </div>
         </center>

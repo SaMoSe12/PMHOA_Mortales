@@ -2,6 +2,7 @@ const NAVBARBURGERS = Array.prototype.slice.call(document.querySelectorAll('.nav
 const _HTML = document.querySelector('html');
 const NAVBAR = document.querySelector('nav.navbar');
 const UCOBUTTON = document.querySelector('#uco-button');
+const RENTABUTTON = document.querySelector('#boton-renta');
 const MODALBUTTONES = document.querySelectorAll('.modalButton');
 const CLOSEBUTTONS = document.querySelectorAll('button.delete');
 
@@ -9,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Logica para que los menus de hamburgesa enseñen el menu del navbar
     if(NAVBARBURGERS){
-        console.log(NAVBARBURGERS)
         NAVBARBURGERS.forEach(element => {
             element.addEventListener('click', () => {
 
@@ -38,6 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
         target.classList.add('is-active');
         _HTML.classList.add('is-clipped');
     });
+    if(RENTABUTTON){
+        RENTABUTTON.addEventListener('click', (e) => {
+            console.log(e.target);
+            var target;
+            if(e.target.nodeName === 'A'){
+                target = document.getElementById(e.target.dataset['target']);
+            }
+            else{
+                // console.log(e.target.parentNode);
+                target = document.getElementById(e.target.parentNode.dataset.target);
+            }
+            target.classList.add('is-active');
+            _HTML.classList.add('is-clipped');
+        });
+    }
     MODALBUTTONES.forEach((button) => {
         button.addEventListener('click', (e) => {
             //console.log(e.path[1]);

@@ -217,6 +217,12 @@
                 <p>Ruta de Transporte Temporada Baja</p>
             </a>
         </div>
+        <div class="col-sm">
+            <a class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" id="boton-renta" data-target="renta-modal">
+                <img src ="puntaHOA/images/documento.svg" width="100" height="100"/>
+                <p>Formato Renta</p>
+            </a>
+        </div>
     </div>
 </div>
 <br />

@@ -1,0 +1,27 @@
+nav.navbar.is-transparent(role="navigation" aria-label="main navigation")
+    .navbar-brand 
+        a.navbar-item(href="/eng")
+            img(src!="<?php echo BASEPATH .'assets/img/logo.png';?>", alt="Logo Punta Mita HOA")
+        
+        a.navbar-burger(role="button" aria-label="menu" aria-expanded="false" data-target="navbarMenu")
+            span(aria-hidden="true")
+            span(aria-hidden="true")
+            span(aria-hidden="true")
+        
+    .navbar-menu#navbarMenu
+        .navbar-start 
+            a.navbar-item(href="/eng/quienes-somos") About us
+            a.navbar-item(href="/eng/servicios") Services
+            a.navbar-item(href="/eng/bienes-raices") Real Estate
+            a.navbar-item(href="/eng/amenidades") Amenities
+            a.navbar-item(href="/iniciar-sesion") Log in
+        .navbar-end 
+            a.navbar-item(href="/") ESP
+            .navbar-item.has-dropdown.is-hoverable 
+                a.navbar-link.is-arrowless 
+                    img(src!="<?php echo BASEPATH . 'assets/img/iconmonstr-menu-1.svg'; ?>", alt="menu")
+                
+                .navbar-dropdown 
+                    .navbar-item Residents
+                    a.navbar-item(href="/eng/apoyo-residentes") Resident Support
+                    a.navbar-item(href="/eng/contacto") Contact Us

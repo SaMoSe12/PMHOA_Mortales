@@ -1,0 +1,98 @@
+//- button#uco-button(data-target="uco-modal")
+
+.modal#renta-modal
+    .modal-background 
+    .modal-card 
+        header.modal-card-head 
+            p.modal-card-title Formato de Renta 
+            button.delete(aria-label="close")
+        section.modal-card-body 
+            p Por favor llena el formulario para generar el documento 
+            
+            form.mt-4.mb-4#formRenta(action="/formato-renta", method="get")
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="nombre_arrendador").title.is-6  Nombre Arrendador: 
+                    .field-body 
+                        .field 
+                            .control 
+                                input.input#nombre_arrendador(type="text", name="nombre_arrendador")
+                                
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="nombre_arrendatario").title.is-6  Nombre Arrendadatario: 
+                    .field-body 
+                        .field 
+                            .control 
+                                input.input#nombre_arrendador(type="text", name="nombre_arrendatario")
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="propiedad").title.is-6  Propiedad: 
+                    .field-body 
+                        .field 
+                            .control 
+                                input.input#propiedad(type="text", name="propiedad")
+                
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="subcondominio").title.is-6  Condominio: 
+                    .field-body 
+                        .field 
+                            .control 
+                                .select.is-fullwidth 
+                                    select.required#subcondominio(name="subcondominio", required="true")
+                                        option Selecciona un condominio 
+                                        option(value="El Encanto") El Encanto
+                                        option(value="Bahia Signature Estates") Bahia Signature Estates
+                                        option(value="Four Seasons Residences") Four Seasons Residences
+                                        option(value="Hacienda de Mita") Hacienda de Mita
+                                        option(value="Iyari") Iyari
+                                        option(value="Kupuri") Kupuri
+                                        option(value="Las Marietas") Las Marietas
+                                        option(value="Lagos del Mar") Lagos del Mar
+                                        option(value="Ranchos Estates") Ranchos Estates
+                                        option(value="Porta Fortuna") Porta Fortuna
+                                        option(value="TAU Residences") TAU Residences
+                                        option(value="Signature Estates") Signature Estates
+                                        option(value="Pacifico Estates") Pacifico Estates
+                                        option(value="Las Palmas") Las Palmas
+                                        option(value="La Serenata") La Serenata
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="otro_identificacion").title.is-6  Documento identificacion: 
+                    .field-body 
+                        .field 
+                            .control 
+                                input.input#otro_identificacion(type="text", name="otro_identificacion")
+                
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="fecha_desde").title.is-6  Desde: 
+                    .field-body 
+                        .field 
+                            .control 
+                                input.input#fecha_desde(type="date", name="fecha_desde")
+                                
+                .field.is-horizontal
+                    .field-label.is-normal
+                        label(for="fecha_hasta").title.is-6  Hasta: 
+                    .field-body 
+                        .field 
+                            .control                                
+                                input.input#fecha_hasta(type="date", name="fecha_hasta")
+
+
+        footer.modal-card-foot 
+            button.button.is-success#renta-modal-submit Enviar 
+| <?php 
+|   if(isset($_SESSION['fraccionamiento'])){
+|       echo "<script> document.querySelector('select#subcondominio').selectedIndex = " . $_SESSION['fraccionamiento'] . "</script>";
+|   }
+|?>
+script. 
+    const rentaSubmit = document.getElementById('renta-modal-submit');
+    const formRenta = document.getElementById('formRenta');
+
+    rentaSubmit.addEventListener('click', () => {
+        formRenta.submit();     
+    });

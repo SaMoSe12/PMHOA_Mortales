@@ -1,0 +1,47 @@
+#home.amenidades 
+    h1.titulo amenidades
+
+section#amenidades 
+    .container 
+        .is-hidden-desktop 
+            .separador
+        h1.titulo amenidades
+
+        .columns.is-desktop.is-multiline 
+            .column.is-half
+                .card
+                    .card-image
+                        figure.image.is-1by1
+                            a(href="https://golfpuntamita.com/", target="_blank")
+                                img(src!="<?php echo BASEPATH . 'assets/img/golf_amenidades.jpg'; ?>", alt="Golf")
+                    .card-content
+                        .content
+                            a(href="https://golfpuntamita.com/", target="_blank") #[p.title.is4 GOLF COURSE]
+                            p Punta Mita Golf Course is a Jack Nicklaus design created over 195 acres. This Nicklaus signature course offers an 18-hole, par 72-Championship experience for all levels of golfers.
+            .column.is-half
+                .card
+                    .card-image
+                        figure.image.is-1by1
+                            a(href="https://clubpuntamita.com/", target="_blank")
+                                img(src!="<?php echo BASEPATH . 'assets/img/beach.jpg'; ?>", alt="Club de playa")
+                    .card-content
+                        .content
+                            a(href="https://clubpuntamita.com/", target="_blank") #[p.title.is4 PUNTA MITA CLUB]
+                            p Beach clubs are reserved exclusively for Punta Mita owners and their guests, which enjoy pleasant places that are distinguished by their location on the beach, swimming pools and other amenities that make a day or a night on the cost even more attractive
+            .column.is-half
+                .card
+                    .card-image
+                        figure.image.is-1by1
+                            a.modalButton(data-target="modal-amenidades")
+                                img(src!="<?php echo BASEPATH . 'assets/img/senderosRecrativos.jpg'; ?>", alt="Golf")
+                    .card-content
+                        .content
+                            a.modalButton(data-target="modal-amenidades") #[p.title.is4 RECREATIONAL TRAILS]
+                            p A network of walking trails now we have through the community. The trails are paved and give residents and guests the opportunity to enjoy a scenic workout or leisurely stroll around Punta Mita.
+
+.modal#modal-amenidades 
+    .modal-background 
+    .modal-content 
+        p.image
+            img(src!="<?php echo BASEPATH . 'assets/img/senderosRecreativosMapa.jpg'; ?>", alt="Mapa de Senderos Recreativos en Punta Mita")
+    button.modal-close.is-large.delete(aria-label="close")

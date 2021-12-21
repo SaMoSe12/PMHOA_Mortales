@@ -1,6 +1,6 @@
 <html>
 <?php
-   include("../databaseconnect.php");
+   include("puntaHOA/databaseconnect.php");
    include('session.php');  
 
    $limit = 10;
@@ -13,7 +13,7 @@
     $offset = ($pag-1) * $limit;
 
 
-    $sql = "SELECT SQL_CALC_FOUND_ROWS idAnuncio, Mensaje, idTipoMensaje FROM controlanuncios LIMIT $offset, $limit";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS idAnuncio, Mensaje, idTipoMensaje FROM ControlAnuncios LIMIT $offset, $limit";
     $sqlTotal = "SELECT FOUND_ROWS() as total";
 
     $rs = mysqli_query($conn,$sql);
@@ -28,12 +28,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrativos</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/puntaHOA/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/site.css" />
-    <link rel="shortcut icon" type="image/jpg" href="../images/logo.png"/>
+    <link rel="stylesheet" href="/puntaHOA/css/site.css" />
+    <link rel="shortcut icon" type="image/jpg" href="/puntaHOA/images/logo.png"/>
  </head>
    <style>
     footer {
@@ -55,7 +55,7 @@
       text-decoration:none
     }
     #myInput {
-      background-image: url('../images/search.svg');
+      background-image: url('/puntaHOA/images/search.svg');
       background-position: 15px 15px;
       background-repeat: no-repeat;
       width: 100%;
@@ -98,15 +98,16 @@ function myFunction() {
      <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a href="homeAdmin.php?pag=1"><img src="../images/logo.png" width="120" height="120"></a>
+                <a href="/admin/home?pag=1"><img src="/puntaHOA/images/logo.png" width="120" height="120"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="d-flex flex-row-reverse bd-highlight">
-                   <div class="p-2 bd-highlight"><a href="logout.php">Cerrar Sesión</a></div> 
-                   <div class="p-2 bd-highlight"><a href="homeDocumentos.php?pag=1" style="color: black;">Documentos</a></div>
-                   <div class="p-2 bd-highlight"><a href="homeAdmin.php?pag=1" style="color: black;">Residentes</a></div>
+                   <div class="p-2 bd-highlight"><a href="/admin-logout">Cerrar Sesión</a></div> 
+                   <div class="p-2 bd-highlight"><a href="/admin/correos" style="color: black;">Correos</a></div>
+                   <div class="p-2 bd-highlight"><a href="/admin/notificaciones?pag=1" style="color: black;">Notificaciones</a></div>
+                   <div class="p-2 bd-highlight"><a href="/admin/documentos?pag=1" style="color: black;">Documentos</a></div>
                    <div class="p-2 bd-highlight"><a style="color: black;">Bienvenido <?php echo $login_session; ?></a></div>
                 </div>
             </div>
@@ -128,14 +129,14 @@ function myFunction() {
              {
               $id = $row["idAnuncio"];
               $message = htmlentities($row["Mensaje"]);
-              $sql = mysqli_query($conn,"select descripcion from catalogotipomensaje where idTipoMensaje = ".$row["idTipoMensaje"]." ");
+              $sql = mysqli_query($conn,"select descripcion from CatalogoTipoMensaje where idTipoMensaje = ".$row["idTipoMensaje"]." ");
               $row = mysqli_fetch_array($sql,MYSQLI_ASSOC);
               $desc =  $row["descripcion"];
             ?>
                 <tr>
                 <td><?php echo $message; ?></td>
                 <td><?php echo $desc; ?></td>
-                <td><a href="editarNotif.php?EDITAR_ID=<?php echo $id; ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a href="editar-notificacion?EDITAR_ID=<?php echo $id; ?>"><i class="fas fa-edit"></i></a></td>
                 </tr>
             <?php
              }
@@ -158,9 +159,9 @@ function myFunction() {
         </tfoot>
         </table>
          <div class="float-right">
-            <button type="button" class="btn btn-info"><a href="formnotif.php">Crear Notificacion</a></button> 
-            <button type="button" class="btn btn-info"><a href="controlnotif.php">Asignar Notificacion</a></button>
-            <button type="button" class="btn btn-info"><a href="anunciosfracc.php?pag=1">Editar Parametros de Notificaciones</a></button>
+            <button type="button" class="btn btn-info"><a href="/admin/crear-notificacion">Crear Notificacion</a></button> 
+            <button type="button" class="btn btn-info"><a href="/admin/control-notificaciones">Asignar Notificacion</a></button>
+            <button type="button" class="btn btn-info"><a href="/admin/anuncios-fraccionamiento?pag=1">Editar Parametros de Notificaciones</a></button>
          </div>
     </div>
     <br/>

@@ -12,17 +12,17 @@ section#amenidades
                 .card
                     .card-image
                         figure.image.is-1by1
-                            a(href="https://clubpuntamita.com/", target="_blank")
+                            a(href="https://golfpuntamita.com/", target="_blank")
                                 img(src="assets/img/golf_amenidades.jpg", alt="Golf")
                     .card-content
                         .content
-                            a(href="https://clubpuntamita.com/", target="_blank") #[p.title.is4 CAMPO DE GOLF]
+                            a(href="https://golfpuntamita.com/", target="_blank") #[p.title.is4 CAMPO DE GOLF]
                             p El Campo de Golf Punta Mita fue diseñado por Jack Nicklaus y creado sobre una superficie de más de más de 78 hectáreas. Este campo Jack Nicklaus Signature ofrece una experiencia de campeonato en 18 hoyos par 72 para para jugadores con habilidades de todos los niveles.
             .column.is-half
                 .card
                     .card-image
                         figure.image.is-1by1
-                            a(href="https://golfpuntamita.com/", target="_blank")
+                            a(href="https://clubpuntamita.com/", target="_blank")
                                 img(src="assets/img/beach.jpg", alt="Club de playa")
                     .card-content
                         .content
@@ -32,9 +32,16 @@ section#amenidades
                 .card
                     .card-image
                         figure.image.is-1by1
-                            a(href="https://clubpuntamita.com/", target="_blank")
-                                img(src="assets/img/golf_amenidades.jpg", alt="Golf")
+                            a.modalButton(data-target="modal-amenidades")
+                                img(src="assets/img/senderosRecrativos.jpg", alt="Golf")
                     .card-content
                         .content
-                            a(href="https://clubpuntamita.com/", target="_blank") #[p.title.is4 CAMPO DE GOLF]
-                            p El Campo de Golf Punta Mita fue diseñado por Jack Nicklaus y creado sobre una superficie de más de más de 78 hectáreas. Este campo Jack Nicklaus Signature ofrece una experiencia de campeonato en 18 hoyos par 72 para para jugadores con habilidades de todos los niveles.
+                            a.modalButton(data-target="modal-amenidades") #[p.title.is4 SENDEROS RECREATIVOS]
+                            p Una red de senderos para pasear atraviesa ahora la comunidad. Los senderos están pavimentados y ofrecen a los residentes y a los visitantes la oportunidad de disfrutar de un entrenamiento panorámico o de un paseo tranquilo por Punta Mita.
+
+.modal#modal-amenidades 
+    .modal-background 
+    .modal-content 
+        p.image
+            img(src="assets/img/senderosRecreativosMapa.jpg", alt="Mapa de Senderos Recreativos en Punta Mita")
+    button.modal-close.is-large.delete(aria-label="close")

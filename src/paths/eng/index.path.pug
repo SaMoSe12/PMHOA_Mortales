@@ -1,0 +1,46 @@
+section#home 
+    h1.titulo WELCOME
+section#bienvenida 
+    .container
+        h1.titulo WELCOME
+        p Punta Mita is Mexico’s premier community and foremost resort sanctuary. Located on the northern tip of the Bahía de Banderas, one of the largest natural bays on the Pacific Coast, this innovative development spreads over 1,500 acres on a spear shaped peninsula
+        
+        p Punta Mita is blessed with one of the most pleasant climates in the world while surrounded by pristine white-sand beaches, tropical flora and clear blue waters. Punta Mita is also considered one of the area's best spots for scuba diving, snorkeling and surfing. Golf enthusiasts are sure to discover paradise while playing beside the waves at the unique Jack Nicklaus golf course which includes an island green.
+
+        p Punta Mita is home to the Four Seasons, a St. Regis resort and two championship Jack Nicklaus Signature golf courses, as well as residential homes. A tennis center, beach clubs, spa/wellness center, equestrian center, yacht pier and small commercial village will complete this privileged residential resort community.
+
+        .columns.is-desktop
+            .column 
+                figure.image.is-96x96.m-3
+                    a.modalButton(data-target="mapa")
+                        img(src="assets/img/map-pin.svg", alt="Pin en mapa")
+                    a.modalButton(data-target="mapa") 
+                        p map of punta mita
+            
+            .column 
+                figure.image.is-96x96.m-3
+                    a(href="assets/documents/folleto.pdf" download="folleto.pdf" target="_blank") 
+                        img(src="assets/img/icon-map-brochure.svg", alt="Folleto")
+                    a(href="assets/documents/folleto.pdf" download="folleto.pdf" target="_blank") 
+                        p brochure
+            
+            .column 
+                figure.image.is-96x96.m-3
+                    a.modalButton(data-target="qr")
+                        img(src="assets/img/icon-qr.svg", alt="QR code")
+                    a.modalButton(data-target="qr")
+                        p qr code
+
+.modal#mapa 
+    .modal-background 
+    .modal-content 
+        p.image
+            img(src="assets/img/mapa.jpg", alt="Mapa de Punta Mita")
+    button.modal-close.is-large.delete(aria-label="close")
+
+.modal#qr
+    .modal-background 
+    .modal-content 
+        p.image
+            img(src="assets/img/qr-code.jpg", alt="Mapa de Punta Mita")
+    button.modal-close.is-large.delete(aria-label="close")

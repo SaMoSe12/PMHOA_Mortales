@@ -1,6 +1,6 @@
 <html>
 <?php
-   include("../databaseconnect.php");
+   include("puntaHOA/databaseconnect.php");
    session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,15 +8,19 @@
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
       
-      $sql = "SELECT idAdminstrativo FROM catalogoadministrativos WHERE userAdmin = '$myusername' and passwordAdmin = '$mypassword'";
+      $sql = "SELECT idAdministrativo FROM CatalogoAdministrativos WHERE userAdmin = '$myusername' and passwordAdmin = '$mypassword'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $count = mysqli_num_rows($result);
+
+      if(mysqli_error($conn)){
+          echo(mysqli_error($conn));
+      }
         
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("location: homeAdmin.php?pag=1");
+         header("location: /admin/home?pag=1");
       }else {
          $error = "Usuario y Contraseña incorrectos";
       }
@@ -27,17 +31,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portal Administrativo</title>
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/puntaHOA/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/site.css" />
-    <link rel="shortcut icon" type="image/jpg" href="../images/logo.png"/>
+    <link rel="stylesheet" href="puntaHOA/css/site.css" />
+    <link rel="shortcut icon" type="image/jpg" href="puntaHOA/images/logo.png"/>
  </head>
  <style>
     body {
-        background-image: url('../images/3.jpg');
+        background-image: url('/puntaHOA/images/3.jpg');
         background-size: cover;
+    }
+    #log{
+        height: 85vh;
     }
     footer {
    position: fixed;
@@ -53,7 +60,7 @@
       <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <img src="../images/logo.png" href="/Index" width="120" height="120">
+                <img src="/puntaHOA/images/logo.png" href="/Index" width="120" height="120">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -72,7 +79,7 @@
                             }        
                             ?>
                             <h3 class="text-center text-white">Iniciar Sesión</h3>  
-                        <form id="login-form" class="form" action="" method="post">                          
+                        <form id="login-form" class="form" action="#" method="post">                          
                             <br />
                             <br />
                             <div class="input-group input-group-lg">

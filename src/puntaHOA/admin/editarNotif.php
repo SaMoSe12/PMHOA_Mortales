@@ -1,21 +1,21 @@
 <html>
 <?php
    $id = $_GET['EDITAR_ID'];
-   include("../databaseconnect.php");
+   include("puntaHOA/databaseconnect.php");
    include('session.php');  
 
-   $busca = "SELECT Mensaje, idTipoMensaje FROM controlanuncios WHERE idAnuncio = '$id'";
+   $busca = "SELECT Mensaje, idTipoMensaje FROM ControlAnuncios WHERE idAnuncio = '$id'";
       $resultado = mysqli_query($conn,$busca);
       $row = mysqli_fetch_array($resultado,MYSQLI_ASSOC);
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = mysqli_real_escape_string($conn,$_POST['mensaje']);
     $tipoMensaje = mysqli_real_escape_string($conn,$_POST['tipoMensaje']);
-    $insertar = "UPDATE controlanuncios SET Mensaje = '$message', idTipoMensaje = '$tipoMensaje' WHERE idAnuncio = '$id'";
+    $insertar = "UPDATE ControlAnuncios SET Mensaje = '$message', idTipoMensaje = '$tipoMensaje' WHERE idAnuncio = '$id'";
          if (mysqli_query($conn, $insertar)) {
           echo "<script>
             alert('Se actualizo la información de manera correcta');
-            window.location.href='notificaciones.php?pag=1';
+            window.location.href='/admin/notificaciones?pag=1';
             </script>";
          } else {
           $error = "No se agrego la notificacion introducida, favor de contactar a soporte con el siguiente codigo: " . $sql . "<br>" . mysqli_error($conn);
@@ -27,12 +27,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrativos</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/puntaHOA/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/site.css" />
-    <link rel="shortcut icon" type="image/jpg" href="../images/logo.png"/>
+    <link rel="stylesheet" href="/puntaHOA/css/site.css" />
+    <link rel="shortcut icon" type="image/jpg" href="/puntaHOA/images/logo.png"/>
  </head>
    <style>
     footer {
@@ -54,7 +54,7 @@
       text-decoration:none
     }
     #myInput {
-      background-image: url('../images/search.svg');
+      background-image: url('/puntaHOA/images/search.svg');
       background-position: 15px 15px;
       background-repeat: no-repeat;
       width: 100%;
@@ -80,7 +80,7 @@
      <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a href="homeAdmin.php?pag=1"><img src="../images/logo.png" width="120" height="120"></a>
+                <a href="/admin/home?pag=1"><img src="/puntaHOA/images/logo.png" width="120" height="120"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -113,7 +113,7 @@
                 <select class="form-control" id="tipoMensaje" name="tipoMensaje" onchange="myFunction()" required>>
                     <option value="">Por favor, elija una opción</option>
                      <?php
-                        $sql_query = "SELECT idTipoMensaje, descripcion FROM catalogotipomensaje";
+                        $sql_query = "SELECT idTipoMensaje, descripcion FROM CatalogoTipoMensaje";
                         $results = mysqli_query($conn, $sql_query) or die("error base de datos:". mysqli_error($conn));
                         while( $descripcion = mysqli_fetch_assoc($results) ) {
                     ?>
@@ -132,7 +132,7 @@
                 <input type="submit" value="Añadir" class="btn btn-success" id="myBtn">
                 </div>
                 <div class="col">
-                <button type="button" class="btn btn-danger"><a href="notificaciones.php?pag=1" style="color: white;">Regresar</a></button>
+                <button type="button" class="btn btn-danger"><a href="/admin/notificaciones?pag=1" style="color: white;">Regresar</a></button>
                 </div>
             </div>
         </center>
